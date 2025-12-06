@@ -50,9 +50,8 @@ class TestSmoketestall():
     self.driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
     self.driver.set_window_size(1382, 744)
     WebDriverWait(self.driver, 10).until(
-      expected_conditions.presence_of_element_located((By.LINK_TEXT, "Join"))
+      expected_conditions.presence_of_element_located((By.NAME, "fname"))
     )
-    self.driver.find_element(By.LINK_TEXT, "Join").click()
     elements = self.driver.find_elements(By.NAME, "fname")
     assert len(elements) > 0
     self.driver.find_element(By.NAME, "fname").click()
