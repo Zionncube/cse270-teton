@@ -47,7 +47,7 @@ class TestSmoketestall():
     assert len(elements) > 0
   
   def test_smokeTestJoin(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/join.html")
     self.driver.set_window_size(1382, 744)
     WebDriverWait(self.driver, 10).until(
       expected_conditions.presence_of_element_located((By.LINK_TEXT, "Join"))
@@ -68,12 +68,11 @@ class TestSmoketestall():
     assert len(elements) > 0
   
   def test_smokeTestAdmin(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/directory.html")
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
     self.driver.set_window_size(1382, 744)
     WebDriverWait(self.driver, 10).until(
-      expected_conditions.presence_of_element_located((By.LINK_TEXT, "Admin"))
+      expected_conditions.presence_of_element_located((By.ID, "username"))
     )
-    self.driver.find_element(By.LINK_TEXT, "Admin").click()
     self.driver.find_element(By.ID, "username").click()
     self.driver.find_element(By.ID, "username").send_keys("happy")
     self.driver.find_element(By.ID, "password").click()
